@@ -113,7 +113,7 @@ const HomePage = () => {
       // Convert to Dubai time (GMT+4)
       const options: Intl.DateTimeFormatOptions = { timeZone: 'Asia/Dubai', year: 'numeric', month: '2-digit', day: '2-digit' };
       const dubaiDate = new Intl.DateTimeFormat('en-US', options).format(currentDate);
-      console.log(dubaiDate.toString());
+      console.log("========>", dubaiDate.toString());
       // eventBuilder.track('visit', {});
     }, [])
 
