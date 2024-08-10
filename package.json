@@ -15,6 +15,7 @@
     "@ramonak/react-progress-bar": "^5.2.0",
     "@react-spring/web": "^9.7.3",
     "@tanstack/react-table": "^8.19.2",
+    "@tonsolutions/telemetree-react": "^1.1.10",
     "axios": "^1.7.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",

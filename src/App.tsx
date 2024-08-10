@@ -6,6 +6,7 @@ import GameLayout from "./layout/GameLayout";
 import SplashPage from "./pages/Splash";
 import { useUser } from "./hooks/useUser";
 import BaseProvider from "./context/BaseProvider";
+import { TwaAnalyticsProvider } from '@tonsolutions/telemetree-react';
 
 const App = () => {
   const [showGame, setShowGame] = useState(false);
@@ -22,6 +23,11 @@ const App = () => {
   }, []);
 
   return (
+    <TwaAnalyticsProvider
+      projectId='3295559c-e2ea-4eb4-a307-04851be7f5a9'
+      apiKey='53633d6d-4abb-4987-af51-b00a514ff2f2'
+      appName='smart_mini_app'
+    >
     <RecoilRoot>
       <BaseProvider>
         <Layout>
@@ -31,6 +37,7 @@ const App = () => {
         </Layout>
       </BaseProvider>
     </RecoilRoot>
+    </TwaAnalyticsProvider>
   );
 };
 
