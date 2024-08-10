@@ -25,6 +25,8 @@ import { Toast } from "@/lib/toast";
 import { useEffect, useState } from "react";
 import { seaCreatures } from "@/lib/seacreatures";
 
+import { useTWAEvent } from '@tonsolutions/telemetree-react';
+
 type BoosterTitle = "Electrolyte" | "Multitap";
 
 interface Booster {
@@ -49,6 +51,16 @@ const Boost = () => {
 
   const neededDropsOfEle = [2000, 10000, 50000, 100000,  1000000]
   const neededDropsOfMul = [4000, 20000, 100000, 500000, 2000000]
+
+  const eventBuilder = useTWAEvent();
+
+  useEffect(()=>{
+    let userName = localStorage.getItem("user_name");
+    eventBuilder.track('Page Visit', {
+      label: 'Boost page visited user', // Additional info about the button
+      category: userName, // Categorize the event
+    });
+  }, [])
 
   const infoGetter = (booster: BoosterTitle): [number, number] => {
     let drops: number = 2000;

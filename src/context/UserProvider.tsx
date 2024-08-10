@@ -122,7 +122,8 @@ export default function UserProvider({ children }: ContextProps) {
               dropsAmount: Number(localStorage.getItem("dropsAmount") ?? "1"),
               tank: JSON.stringify(localStorage.getItem("currentTank")),
             } as User;
-  
+            
+            localStorage.setItem("user_name", String(currentUser.first_name));
             
             localStorage.setItem("balance", String(currentUser.balance));
           
