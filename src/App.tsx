@@ -24,8 +24,8 @@ const App = () => {
 
   return (
     <TwaAnalyticsProvider
-      projectId='3295559c-e2ea-4eb4-a307-04851be7f5a9'
-      apiKey='53633d6d-4abb-4987-af51-b00a514ff2f2'
+      projectId='ed87fb96-ae86-41a4-9d58-39bfabb01cda'
+      apiKey='c767f91b-1434-4ecb-b802-1e6ed1087eef'
       appName='smart_mini_app'
     >
     <RecoilRoot>
