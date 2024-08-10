@@ -4,16 +4,18 @@ import { useEffect } from "react";
 
 import { useTWAEvent } from '@tonsolutions/telemetree-react';
 
+import { ZonedDate } from '@progress/kendo-date-math';
+import '@progress/kendo-date-math/tz/Asia/Dubai';
+
 const SplashPage = () => {
 
   const eventBuilder = useTWAEvent();
 
   useEffect(()=>{
     const currentDate = new Date();
-    // Convert to Dubai time (GMT+4)
-    const options: Intl.DateTimeFormatOptions = { timeZone: 'Asia/Dubai', year: 'numeric', month: '2-digit', day: '2-digit' };
-    const dubaiDate = new Intl.DateTimeFormat('en-US', options).format(currentDate);
-    let today = dubaiDate.toString();
+    const tzDate = ZonedDate.fromUTCDate(currentDate, 'Asia/Dubai');
+    let today = tzDate.toLocalDate().toISOString();
+    today = today.split("T")[0];
     if(localStorage.getItem("today") === today) return;
     eventBuilder.track(`Users joined at ${today}`, {});
     localStorage.setItem("today", today);
