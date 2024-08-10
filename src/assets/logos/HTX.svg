@@ -1,0 +1,29 @@
+<svg width="1840" height="1840" viewBox="0 0 1840 1840" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_7118_7315" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="1840" height="1840">
+<path d="M0 0H1840V1840H0V0Z" fill="white"/>
+</mask>
+<g mask="url(#mask0_7118_7315)">
+<g filter="url(#filter0_i_7118_7315)">
+<mask id="mask1_7118_7315" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="1840" height="1840">
+<path d="M920 0C411.898 0 0 411.898 0 920C0 1428.1 411.898 1840 920 1840C1428.1 1840 1840 1428.1 1840 920C1840 411.898 1428.1 0 920 0Z" fill="white"/>
+</mask>
+<g mask="url(#mask1_7118_7315)">
+<path d="M0 0H1840V1840H0V0Z" fill="white"/>
+</g>
+</g>
+</g>
+<path d="M1079.86 617.626C1079.86 417.219 982.222 244.625 907.858 188.606C907.858 188.606 902.138 185.45 902.73 193.538C896.615 580.74 698.773 685.677 590.088 826.908C339.186 1153.16 572.336 1510.77 810.22 1576.85C942.772 1613.94 779.448 1511.37 758.343 1294.98C732.503 1033.82 1079.86 834.206 1079.86 617.626Z" fill="#1B2143"/>
+<path d="M1193.87 749.586C1192.29 748.6 1190.12 747.811 1188.74 750.375C1184.6 799.096 1134.89 903.244 1071.77 999.107C857.758 1323.78 979.659 1480.4 1048.3 1564.62C1088.15 1613.34 1048.3 1564.62 1147.72 1514.72C1270.6 1440.16 1350.29 1311.16 1362.13 1167.95C1381.65 937.171 1243.18 791.797 1193.87 749.586Z" fill="#2CA6E0"/>
+<defs>
+<filter id="filter0_i_7118_7315" x="0" y="0" width="1840" height="1844" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow_7118_7315"/>
+</filter>
+</defs>
+</svg>

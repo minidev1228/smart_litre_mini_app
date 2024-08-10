@@ -1,0 +1,235 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+
+    --card: 224 71% 4%;
+    --card-foreground: 213 31% 91%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 216 34% 17%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    font-family: Nunito;
+  }
+
+  body {
+    background-image: url("/sea-ground.svg"), url("/background-logo.svg"),
+      radial-gradient(50% 50% at 50% 50%, #7b3fe7 0%, #6327ce 100%);
+    background-position: bottom, center 80%;
+    background-size: 100% auto, auto;
+    color: white;
+  }
+
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none; /* Remove focus outline */
+    box-shadow: none; /* Remove any box shadow */
+    border: none; /* Remove any border */
+    -webkit-appearance: none; /* Remove default webkit appearance */
+    -webkit-box-shadow: none; /* Remove iOS specific box shadow */
+    -webkit-border-radius: 0; /* Remove any border radius */
+    -moz-appearance: none; /* Remove default moz appearance */
+    appearance: none; /* Remove default appearance */
+
+  }
+}
+
+@font-face {
+  font-family: "Distruction";
+  src: url("./assets/fonts/Distruction/Distruction.otf");
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("./assets/fonts/Nunito/static/Nunito-Black.ttf");
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("./assets/fonts/Nunito/static/Nunito-Medium.ttf");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("./assets/fonts/Nunito/static/Nunito-ExtraBold.ttf");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("./assets/fonts/Nunito/static/Nunito-Bold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("./assets/fonts/Nunito/static/Nunito-SemiBold.ttf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("./assets/fonts/Nunito/static/Nunito-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("./assets/fonts/Nunito/static/Nunito-Light.ttf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("./assets/fonts/Nunito/static/Nunito-ExtraLight.ttf");
+  font-weight: 200;
+}
+
+.rowspacing {
+  border-collapse: separate;
+  border-spacing: 0 5px;
+}
+/* toast animations */
+
+.animate-enter {
+  animation: animate-enter 0.3s ease-out forwards;
+}
+
+.animate-leave {
+  animation: animate-leave 0.3s ease-in forwards;
+}
+
+/* Enter animation */
+@keyframes animate-enter {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Leave animation */
+@keyframes animate-leave {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+
+.animate-bouncing {
+  animation: bounce 1.4s infinite;
+}
+
+.done{
+  box-shadow: 0px 0px 18px 18px rgb(56, 182, 255);
+  margin: 15px;
+  /* border: 10px solid aqua; */
+}
+
+@keyframes bounce {
+  0%, 100% {
+      transform: translateY(-10%);
+      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+      transform: translateY(0);
+      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+@font-face{
+  font-family: "nutio";
+  src: url('../src/assets/fonts/Nunito/Nunito-Italic-VariableFont_wght.ttf'),
+  url('../src/assets/fonts/Nunito/Nunito-VariableFont_wght.ttf'),
+  url('../src/assets/fonts/Nunito/static/Nunito-Regular.ttf'),
+}
+
+.all-number-of-users{
+  font-family: 'nutio';
+}
+
+.control-css{
+  position: fixed;
+  bottom: 4px;
+  z-index: 5;
+}
