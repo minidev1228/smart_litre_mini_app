@@ -106,17 +106,6 @@ const HomePage = () => {
 
     
     // const eventBuilder = useTWAEvent();
-
-    useEffect(()=>{
-      const currentDate = new Date();
-
-      // Convert to Dubai time (GMT+4)
-      const options: Intl.DateTimeFormatOptions = { timeZone: 'Asia/Dubai', year: 'numeric', month: '2-digit', day: '2-digit' };
-      const dubaiDate = new Intl.DateTimeFormat('en-US', options).format(currentDate);
-      console.log("========>", dubaiDate.toString());
-      // eventBuilder.track('visit', {});
-    }, [])
-
     const addition = 100 / (10 * (level + 1));
     if (level < 6 && currentLevelProgress <= 100 && energy > 0) {
       setEnergy((prev) => Math.max(prev - 1, 0));
