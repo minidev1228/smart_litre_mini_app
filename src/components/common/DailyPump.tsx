@@ -13,6 +13,8 @@ import { balanceAtom } from "@/lib/atom";
 // , confettiAtom
 import Confetti from "react-confetti";
 
+import { useTWAEvent } from '@tonsolutions/telemetree-react';
+
 const dropsDays = [
   500, 1000, 2500, 5000, 15000, 25000, 100000, 500000, 1000000, 5000000,
 ];
@@ -21,6 +23,9 @@ const dropsDays = [
 const DailyPump = (
   
 ) => {
+
+  const eventBuilder = useTWAEvent();
+
   const [currentDay, setCurrentDay] = useState(0);
   const [totalDrops, setTotalDrops] = useState(0);
   const [collected, setCollected] = useState(Array(10).fill(false));
@@ -101,6 +106,13 @@ const DailyPump = (
       localStorage.setItem("balance", newBalance.toString());
       return newBalance;
     });
+    
+    let today = localStorage.getItem("today");
+
+    for(let i = 0; i<dropsDays[currentDay]; i++){
+      eventBuilder.track(`Total amount of drops at ${today}`, {});
+    }
+
     setTotalDrops(newTotalDrops);
     setCollected(newCollected);
     setLastPumpTime(new Date());

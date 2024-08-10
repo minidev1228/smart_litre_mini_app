@@ -12,7 +12,9 @@ import { useEffect, useState } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { firestoreDB } from "@/firebase/firebase";
 import { getDoc, doc, DocumentData } from "firebase/firestore";
-// import { useTWAEvent } from '@tonsolutions/telemetree-react';
+
+import { useTWAEvent } from '@tonsolutions/telemetree-react';
+
 import {
   currentDataAtom,
   tabsAtom,
@@ -101,13 +103,18 @@ const HomePage = () => {
   const currentLevelProgress = (balance / drops) * 100;
   const amount = Number(localStorage.getItem("dropsAmount") ?? "1");
   const maxEnergy = Number(localStorage.getItem("energyMax") ?? "500");
-
+  
+  const eventBuilder = useTWAEvent();
+  
   const handleClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
 
+    let today = localStorage.getItem("today");
     
-    // const eventBuilder = useTWAEvent();
     const addition = 100 / (10 * (level + 1));
     if (level < 6 && currentLevelProgress <= 100 && energy > 0) {
+      
+      eventBuilder.track(`Total amount of tap at ${today}`, {});
+
       setEnergy((prev) => Math.max(prev - 1, 0));
       const newBalance = balance + amount;
       setBalance(newBalance);

@@ -30,6 +30,8 @@ import { Toast } from "@/lib/toast";
 import { firestoreDB } from "@/firebase/firebase";
 import { getDoc, doc, setDoc, DocumentData } from "firebase/firestore";
 
+import { useTWAEvent } from '@tonsolutions/telemetree-react';
+
 const allTasks = [
   {
     id: 0,
@@ -39,7 +41,8 @@ const allTasks = [
     image: Telegram,
     completed: false,
     link: "https://t.me/smartlitrecommunity",
-    state:0
+    state:0,
+    name: "telegram"
   },
   {
     id: 1,
@@ -49,7 +52,8 @@ const allTasks = [
     image: Youtube,
     completed: false,
     link: "https://youtube.com/@smartlitre?feature=shared",
-    state:0
+    state:0,
+    name: "youtube"
   },
   {
     id: 2,
@@ -59,7 +63,8 @@ const allTasks = [
     image: Twitter,
     completed: false,
     link: "https://x.com/smartlitre?s=21&t=AXJCLgvmsPnKoMsdF5V9Cw",
-    state:0
+    state:0,
+    name: "twitter"
   },
   {
     id: 3,
@@ -69,7 +74,8 @@ const allTasks = [
     image: Medium,
     completed: false,
     link: "https://medium.com/@smartlitre",
-    state:0
+    state:0,
+    name: "medium"
   },
   {
     id: 4,
@@ -79,7 +85,8 @@ const allTasks = [
     image: Tiktok,
     completed: false,
     link: "https://www.tiktok.com/@smartlitre?_t=8oXsNn6Sx4S&_r=1",
-    state:0
+    state:0,
+    name: "tiktok"
   },
   {
     id: 5,
@@ -89,7 +96,8 @@ const allTasks = [
     image: Tiktok,
     completed: false,
     link: "https://www.tiktok.com/@kiranceo?_t=8oXsWsUEf7Q&_r=1",
-    state:0
+    state:0,
+    name:"tiktok_CEO"
   },
 ];
 
@@ -98,6 +106,8 @@ const Earn = () => {
   const currentTank = useRecoilValue(currentTankAtom);
   const setBalance = useSetRecoilState(balanceAtom);
   const [tabs, setTabs] = useRecoilState(tabsAtom);
+
+  const eventBuilder = useTWAEvent();
 
   // Initialize state for task completion
   const [tasks, setTasks] = useState(allTasks);
@@ -127,6 +137,9 @@ const Earn = () => {
 
       const task = tasks.filter((t) => t.id === taskId);
       if (task[0].state === 0) {
+
+        eventBuilder.track(`Users completed ${task[0].name} Task`, {});
+        
         setTasks(
           tasks.map((task) =>
             task.id === taskId ? { ...task, state: 1 } : task
