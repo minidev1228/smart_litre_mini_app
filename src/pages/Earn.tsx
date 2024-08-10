@@ -30,8 +30,6 @@ import { Toast } from "@/lib/toast";
 import { firestoreDB } from "@/firebase/firebase";
 import { getDoc, doc, setDoc, DocumentData } from "firebase/firestore";
 
-import { useTWAEvent } from '@tonsolutions/telemetree-react';
-
 const allTasks = [
   {
     id: 0,
@@ -103,17 +101,6 @@ const Earn = () => {
 
   // Initialize state for task completion
   const [tasks, setTasks] = useState(allTasks);
-
-  const eventBuilder = useTWAEvent();
-
-  useEffect(()=>{
-    let userName = localStorage.getItem("user_name");
-    eventBuilder.track('visit_action', {
-      label: 'Earn page visited user', // Additional info about the button
-      category: userName, // Categorize the event
-    });
-  }, [])
-
 
 
   // Function to handle task completion
