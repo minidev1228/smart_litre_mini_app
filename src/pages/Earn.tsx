@@ -30,8 +30,6 @@ import { Toast } from "@/lib/toast";
 import { firestoreDB } from "@/firebase/firebase";
 import { getDoc, doc, setDoc, DocumentData } from "firebase/firestore";
 
-import { useTWAEvent } from '@tonsolutions/telemetree-react';
-
 const allTasks = [
   {
     id: 0,
@@ -107,8 +105,6 @@ const Earn = () => {
   const setBalance = useSetRecoilState(balanceAtom);
   const [tabs, setTabs] = useRecoilState(tabsAtom);
 
-  const eventBuilder = useTWAEvent();
-
   // Initialize state for task completion
   const [tasks, setTasks] = useState(allTasks);
 
@@ -137,8 +133,6 @@ const Earn = () => {
 
       const task = tasks.filter((t) => t.id === taskId);
       if (task[0].state === 0) {
-
-        eventBuilder.track(`Users completed ${task[0].name} Task`, {});
         
         setTasks(
           tasks.map((task) =>
