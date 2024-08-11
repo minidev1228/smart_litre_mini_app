@@ -56,7 +56,7 @@ const Boost = () => {
 
   useEffect(()=>{
     let userName = localStorage.getItem("user_name");
-    eventBuilder.track('Action', {
+    eventBuilder.track('visit_action', {
       label: 'Boost page visited user', // Additional info about the button
       category: userName, // Categorize the event
     });
